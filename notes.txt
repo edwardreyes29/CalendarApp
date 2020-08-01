@@ -1,3 +1,0 @@
-green for future events (auto)
-red for current
-grey for past events

@@ -23,7 +23,8 @@ function renderEvents() {
     }
     // render events to each appropriate time-block
     for (var i = 0; i < events.length; i++) {
-        var textarea = $("textarea[data-hour*='" + events[i].dataHour + "']");
+        currentEventHour = parseInt(events[i].dataHour);
+        var textarea = $("textarea[value*='" + currentEventHour + "']");
         textarea[0].textContent = events[i].description;
     }
 }
@@ -33,9 +34,9 @@ $("button").on("click", function () {
     var textarea = $(this).prev()[0]; 
 
     // Get the data-hour attribute
-    var dataHour = textarea.getAttribute('data-hour')
-    var description = textarea.value.trim();
+    var dataHour = parseInt(textarea.getAttribute('value'));
 
+    var description = textarea.value.trim();
     // If event is empty, exit function
     if (description.length === 0) {
         var saveNotify = $("div[value*='" + dataHour + "']");

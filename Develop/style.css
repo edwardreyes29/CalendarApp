@@ -2,6 +2,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1;
+  width: 100%;
 }
 
 textarea{
@@ -17,7 +18,6 @@ textarea{
 .jumbotron {
   text-align: center;
   background-image: url(../Assets/mountain.jpg);
-  /* background-color: transparent; */
   color: black;
   border-radius: 0;
   border-bottom: 10px solid rgb(255, 166, 0);
@@ -63,15 +63,8 @@ textarea{
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  /* border-color: #06AED5;
-  background-color: #06AED5; */
   color: white;
 }
-
-/* .saveBtn i:hover {
-  font-size: 20px;
-  transition: all .3s ease-in-out;
-} */
 
 .saveNotify{
   margin: auto;
@@ -79,3 +72,8 @@ textarea{
   font-size: 12px;
 }
 
+@media (max-width: 414px) {
+  .hour {
+    font-size: 2.5vw;
+  }
+}
