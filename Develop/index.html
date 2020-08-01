@@ -14,12 +14,12 @@
 </head>
 
 <body>
-  <header class="jumbotron bg-primary text-light">
+  <header class="jumbotron text-light">
     <h1 class="display-3">Work Day Scheduler</h1>
     <p class="lead">A simple calendar app for scheduling your work day</p>
     <p id="currentDay" class="lead"></p>
   </header>
-  <div class="container">
+  <div class="container text-dark">
 
     <div class="time-block">
       <div class="row">
@@ -238,14 +238,13 @@
 
   </div> <!-- container -->
 
-
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="script.js"></script>
   <script>
 
-    
+
     function updateTime() {
-      
       const now = moment();
       const humanReadable = now.format('dddd, MMMM Do YYYY, h:mm:ss a');
 
@@ -253,61 +252,27 @@
       $('#currentDay').text(humanReadable);
 
       // add present class to current hour
-      var hour = now.format('H');
-      $("textarea[data-hour*='" + hour +"']").addClass("present");
-  
+      m = moment("14/06/2019 4:50PM", "DD/MM/YYYY h:mmA")
+      var hour = m.format('H');
+      $("textarea[data-hour*='" + hour + "']").addClass("present");
+
       // Add present class to future hours before midnight
       var futureHours = hour;
       while (futureHours <= 23) {
         futureHours++;
-        $("textarea[data-hour*='" + futureHours +"']").addClass("future");
+        $("textarea[data-hour*='" + futureHours + "']").addClass("future");
       }
 
       // add past class to previous hours
       var pastHours = hour;
       while (pastHours >= 0) {
         pastHours--;
-        $("textarea[data-hour*='" + pastHours +"']").addClass("past");
+        $("textarea[data-hour*='" + pastHours + "']").addClass("past");
       }
-
-
-
-      // if (hour <= 23)
     }
     // runs every second
     setInterval(updateTime, 1000);
     updateTime(); // Gets called right away to update Time
-
-
-
-    // var hour = 20
-    // $("textarea[data-hour*='" + hour +"']").addClass("present");
-
   </script>
 </body>
-
 </html>
-
-
-<!-- <div class="row input-group time-block">
-  <div class="input-group-prepend">
-    <span class="input-group-text">7AM</span>
-  </div>
-  <textarea class="form-control " aria-label="With textarea" value="7"></textarea>
-  <div class="input-group-append">
-    <span class="input-group-text bg-info"><img src="../Assets/SVG/saveIcon.svg" width="20px"
-        class="img-fluid"></span>
-  </div>
-</div> -->
-
-<!-- <div class="time-block">
-  <div class="row">
-    <div class="col-1 hour">
-      <span>7AM</span>
-    </div>
-    <textarea class="col-9" data-hour="7"></textarea>
-    <button class="col-1 saveBtn">
-      <span><i>save</i></span>
-    </button>
-  </div> 
-</div>  -->
