@@ -252,8 +252,7 @@
       $('#currentDay').text(humanReadable);
 
       // add present class to current hour
-      m = moment("14/06/2019 4:50PM", "DD/MM/YYYY h:mmA")
-      var hour = m.format('H');
+      var hour = now.format('H');
       $("textarea[data-hour*='" + hour + "']").addClass("present");
 
       // Add present class to future hours before midnight
