@@ -38,7 +38,19 @@ $("button").on("click", function () {
 
     // If event is empty, exit function
     if (description.length === 0) {
-        alert("Event empty");
+        var saveNotify = $("div[value*='" + dataHour + "']");
+        saveNotify[0].classList.remove("text-success");
+        saveNotify[0].classList.add("text-danger");
+        saveNotify[0].textContent = "Nothing was saved"
+        saveNotify[0].style.display = "block";
+
+        // Only show for 2 seconds
+        setInterval(function() {
+            saveNotify[0].classList.add("text-success");
+            saveNotify[0].classList.remove("text-danger");
+            saveNotify[0].textContent = ""
+            saveNotify[0].style.display = "none";
+        }, 2000);
         return;
     }
 
@@ -60,7 +72,6 @@ $("button").on("click", function () {
     setInterval(function() {
         saveNotify[0].textContent = ""
     saveNotify[0].style.display = "none";
-    }, 3000);
-
+    }, 2000);
 })
 
