@@ -5,7 +5,9 @@ body {
 }
 
 textarea{
-  background: transparent;
+  width: 100%;
+  background-color: rgb(218, 213, 213);
+  /* background: transparent; */
   border: none;
   resize: none;
   color: #000000;
