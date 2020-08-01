@@ -1,6 +1,5 @@
 var events = []; // To store events
 
-
 // $("textarea").on("click", function () {
 //     // Only concatenate firstNumber while operator has not been pressed
 //     console.log($(this).val());
@@ -52,6 +51,16 @@ $("button").on("click", function () {
 
     localStorage.setItem("events", JSON.stringify(events))
     
+    // send a notification that the event has been saved
+    var saveNotify = $("div[value*='" + dataHour + "']");
+    saveNotify[0].textContent = "Event has been saved"
+    saveNotify[0].style.display = "block";
+
+    // Only show for 2 seconds
+    setInterval(function() {
+        saveNotify[0].textContent = ""
+    saveNotify[0].style.display = "none";
+    }, 3000);
 
 })
 
