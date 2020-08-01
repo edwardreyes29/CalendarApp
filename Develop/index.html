@@ -245,14 +245,34 @@
 
     
     function updateTime() {
+      
       const now = moment();
       const humanReadable = now.format('dddd, MMMM Do YYYY, h:mm:ss a');
 
       // console.log(humanReadable);
       $('#currentDay').text(humanReadable);
 
+      // add present class to current hour
       var hour = now.format('H');
       $("textarea[data-hour*='" + hour +"']").addClass("present");
+  
+      // Add present class to future hours before midnight
+      var futureHours = hour;
+      while (futureHours <= 23) {
+        futureHours++;
+        $("textarea[data-hour*='" + futureHours +"']").addClass("future");
+      }
+
+      // add past class to previous hours
+      var pastHours = hour;
+      while (pastHours >= 0) {
+        pastHours--;
+        $("textarea[data-hour*='" + pastHours +"']").addClass("past");
+      }
+
+
+
+      // if (hour <= 23)
     }
     // runs every second
     setInterval(updateTime, 1000);
