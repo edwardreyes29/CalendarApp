@@ -7,7 +7,6 @@ body {
 textarea{
   width: 100%;
   background-color: rgb(218, 213, 213);
-  /* background: transparent; */
   border: none;
   resize: none;
   color: #000000;
@@ -20,7 +19,7 @@ textarea{
   background-color: transparent;
   color: black;
   border-radius: 0;
-  border-bottom: 10px solid black;
+  border-bottom: 10px solid rgb(255, 166, 0);
 }
 
 .description{
@@ -33,7 +32,7 @@ textarea{
 }
 
 .row {
-  white-space: pre-wrap;
+  /* white-space: pre-wrap; */
   height: 80px;
   border-top: 1px solid white;;
 }
@@ -63,11 +62,13 @@ textarea{
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  background-color: #06AED5;
+  /* border-color: #06AED5;
+  background-color: #06AED5; */
   color: white;
 }
 
-.saveBtn i:hover {
+/* .saveBtn i:hover {
   font-size: 20px;
   transition: all .3s ease-in-out;
-}
+} */
+
