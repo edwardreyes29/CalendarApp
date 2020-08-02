@@ -1,44 +1,61 @@
-Create a simple calendar application that allows the user to save events for each hour of the day. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
+# Edward Reyes
+Calendar Application
 
-You'll need to use the [Moment.js](https://momentjs.com/) library to work with date and time. Be sure to read the documentation carefully and concentrate on using Moment.js in the browser.
+## Description:
+Allows the user to save events for each hour of the day. Time-blocks are color coded to indicate whether it is in the past (grey), present (red), or future(green). Users can also enter events and save them in the browsers local storage so users can view their events later.
 
-## User Story
+## Process:
+
+### HTML & Moment.js
+The app uses moment.js library to work with the date and time. I used it both to display the current day and time in the jumbotron, and also used to to color code time-blocks. All of these were done in a script tag in the index.html file. 
+
+For each time-block, I used a span to display the hour, a textarea to store user's text, and a button to save. 
 
 ```
-AS AN employee with a busy schedule
-I WANT to add important events to a daily planner
-SO THAT I can manage my time effectively
+    <div class="time-block">
+      <div class="row">
+        <div class="col-2 col-md-1 hour">
+          <span>7AM</span>
+        </div>
+        <textarea class="col-7 col-md-9" data-hour="7" value="7"></textarea>
+        <button class="col-2 col-md-1 btn btn-primary saveBtn">
+          <img src="Assets/SVG/saveIcon.svg" class="img-fluid" width="20px">
+        </button>
+        <div class="saveNotify text-success justify-content-center col-1" value="7">
+          <span class="align-self-center"></span>
+        </div>
+      </div>
+    </div> <!-- Time block -->
 ```
+Each time-block has the has the same structure and I've repeated them throughout the html file for each hour until 12AM. For the button, I created my own save button icon using Adobe.xd and saved it as an SVG and included it in the button element.
 
-## Acceptance Criteria
+### CSS & Bootstrap
+I only created a @media rule in css to change the text size for the hours. For Bootstrap I used several classes to style the page. I used .container-fluid on he div that surrounds all the time-blocks to make the bootstrap responsive. I also added .col classes that have breakpoints to change their size when the viewport reaches a certain size.
 
-```
-GIVEN I am using a daily planner to create a schedule
-WHEN I open the planner
-THEN the current day is displayed at the top of the calendar
-WHEN I scroll down
-THEN I am presented with timeblocks for standard business hours
-WHEN I view the timeblocks for that day
-THEN each timeblock is color coded to indicate whether it is in the past, present, or future
-WHEN I click into a timeblock
-THEN I can enter an event
-WHEN I click the save button for that timeblock
-THEN the text for that event is saved in local storage
-WHEN I refresh the page
-THEN the saved events persist
-```
+### JavaScript
+I have two functions and a click assigned to the save button event to save the events. The first function, called initEvents(),initializes the events array with the objects saved in the localStorage. The second function, called renderEvents(), assigns the appropriate textarea elements with the corresponding description.
+The save button is assigned a click event, and I've added extra code that notifies the user if they either saved and event or not. An event is not save if it contains an empty string and notifies the user.
 
-The following animation demonstrates the application functionality:
+## Desktop 
+![Desktop-view](Assets/Screenshots/Desktop-view.png)
 
-![day planner demo](./Assets/05-third-party-apis-homework-demo.gif)
+## Time-blocks color coded
+Time taken was at 4:58 PM
+![Time-blocks](Assets/Screenshots/Time-blocks.png)
 
-## Review
+##  Save event & Save notification
+![Save-event](Assets/Screenshots/save-event.png)
 
-You are required to submit the following for review:
+##  Empty save notification
+In the inspector, the empty event was not stored in local storage.
+![Empty-event](Assets/Screenshots/empty-save-event.png)
 
-* The URL of the deployed application.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+##  Responsive views
+### iPad
+![ipad-view](Assets/Screenshots/ipad-view.png)
+### iPhone 6/7/8 
+![iphone-view](Assets/Screenshots/iphone-6-7-8-view.png)
+### iPhone X
+![iphone-x-view](Assets/Screenshots/iphone-x-view.png)
+### Pixel 2
+![pixel-2-view](Assets/Screenshots/pixel-2-view.png)

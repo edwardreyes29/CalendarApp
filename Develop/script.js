@@ -1,9 +1,5 @@
 var events = []; // To store events
 
-// $("textarea").on("click", function () {
-//     // Only concatenate firstNumber while operator has not been pressed
-//     console.log($(this).val());
-// })
 function initEvents() {
     var storedEvents = JSON.parse(localStorage.getItem("events"));
     // If there are no events, exit function
@@ -13,7 +9,6 @@ function initEvents() {
     
     storedEvents.forEach(element => events.push(element));
     renderEvents();
-    // $("textarea[data-hour*='" + hour + "']").addClass("present");
 }
 initEvents();
 
